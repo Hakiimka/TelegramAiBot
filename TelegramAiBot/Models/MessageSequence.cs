@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace TelegramAiBot.Models;
+﻿namespace TelegramAiBot.Models;
 
 public partial class MessageSequence
 {
+
     public int Id { get; set; }
 
     public long UserId { get; set; }

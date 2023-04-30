@@ -1,21 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace TelegramAiBot.Models.DBContext;
 
 public partial class AiTelegramBotDbContext : DbContext
 {
     private readonly string _connectionString;
-    public AiTelegramBotDbContext()
+    public AiTelegramBotDbContext(string connectionString)
     {
-        var configuration = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile($"appsettings.json");
-
-        var config = configuration.Build();
-        _connectionString = config.GetConnectionString("AiDBConnectionString");
+        _connectionString = connectionString;
     }
 
     public AiTelegramBotDbContext(DbContextOptions<AiTelegramBotDbContext> options)
@@ -34,11 +26,17 @@ public partial class AiTelegramBotDbContext : DbContext
     {
         modelBuilder.Entity<MessageSequence>(entity =>
         {
+
+            entity.HasKey(e => e.Id);
             entity
-                .HasNoKey()
+            
                 .ToTable("message_sequences");
 
+            
+
+
             entity.Property(e => e.Id)
+
                 .ValueGeneratedOnAdd()
                 .HasColumnName("id");
             entity.Property(e => e.MessageText)
@@ -49,8 +47,10 @@ public partial class AiTelegramBotDbContext : DbContext
 
         modelBuilder.Entity<User>(entity =>
         {
+
+            entity.HasKey(e => e.Id);
             entity
-                .HasNoKey()
+               
                 .ToTable("users");
 
             entity.Property(e => e.FirstName)
