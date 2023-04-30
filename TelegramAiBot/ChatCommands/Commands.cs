@@ -6,6 +6,7 @@ using Telegram.Bot;
 using Telegram.Bot.Types;
 using TelegramAiBot.Models;
 using TelegramAiBot.Models.DBContext;
+#pragma warning disable CS8602 
 
 namespace TelegramAiBot.ChatCommands
 {
@@ -16,7 +17,9 @@ namespace TelegramAiBot.ChatCommands
         {
             var message = update.Message;
 
+
             var user = dbContext.Users.Where(user => user.UserId == message.Chat.Id).FirstOrDefault();
+
 
             if (user is null)
             {
