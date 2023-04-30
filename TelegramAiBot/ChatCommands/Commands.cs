@@ -73,7 +73,6 @@ namespace TelegramAiBot.ChatCommands
             dbContext.MessageSequences.RemoveRange(sequenses);
             dbContext.SaveChanges();
             await botClient.SendTextMessageAsync(update.Message.Chat, "История успешно удалена");
-            //replyMarkup: MenuKeyboards.GenresKeyboard(2));
             return;
         }
 

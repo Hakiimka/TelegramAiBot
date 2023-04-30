@@ -13,12 +13,6 @@ var configuration = new ConfigurationBuilder()
 
 var config = configuration.Build();
 
-var serviceProvider = new ServiceCollection()
-                // Add your services here..
-                .AddSingleton<AiTelegramBotDbContext>()
-                .AddSingleton(config)
-                .BuildServiceProvider();
-
 var dbContext = new AiTelegramBotDbContext(config.GetSection("AiDBConnectionString").Value);
 
 var bot = new TelegramBotClient(config.GetSection("Bot_API_KEY").Value);
