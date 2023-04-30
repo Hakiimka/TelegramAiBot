@@ -32,9 +32,6 @@ public partial class AiTelegramBotDbContext : DbContext
             
                 .ToTable("message_sequences");
 
-            
-
-
             entity.Property(e => e.Id)
 
                 .ValueGeneratedOnAdd()
