@@ -43,7 +43,7 @@ namespace TelegramAiBot.ChatCommands
                 return;
             }
         }
-        private static OpenAI_API.OpenAIAPI api = new OpenAI_API.OpenAIAPI("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");
+        private static OpenAI_API.OpenAIAPI api = new OpenAI_API.OpenAIAPI("API_KEY");
 
         public static async Task Default(Update update, ITelegramBotClient botClient, AiTelegramBotDbContext dbContext)
         {
