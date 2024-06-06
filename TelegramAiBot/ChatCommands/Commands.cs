@@ -18,9 +18,6 @@ namespace TelegramAiBot.ChatCommands
             var message = update.Message;
 
 
-            //test1 //test2 //test3
-
-
             var user = dbContext.Users.Where(user => user.UserId == message.Chat.Id).FirstOrDefault();
 
 
@@ -46,7 +43,7 @@ namespace TelegramAiBot.ChatCommands
                 return;
             }
         }
-        private static OpenAI_API.OpenAIAPI api = new OpenAI_API.OpenAIAPI("API_KEY");
+        private static OpenAI_API.OpenAIAPI api = new OpenAI_API.OpenAIAPI("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");
 
         public static async Task Default(Update update, ITelegramBotClient botClient, AiTelegramBotDbContext dbContext)
         {
