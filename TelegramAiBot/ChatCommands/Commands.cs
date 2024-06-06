@@ -18,6 +18,9 @@ namespace TelegramAiBot.ChatCommands
             var message = update.Message;
 
 
+            //test1 //test2 //test3
+
+
             var user = dbContext.Users.Where(user => user.UserId == message.Chat.Id).FirstOrDefault();
 
 
